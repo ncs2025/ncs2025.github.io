@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NCS入信テスト</title>
+    <link rel="icon" href="image/favicon.ico" type="image/x-icon">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .header img {
+            margin-right: 20px;
+            max-width: 100px;
+            height: auto;
+        }
+        h1 {
+            font-size: 48px;
+            color: #333;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        #inputBox, #submitButton {
+            padding: 10px;
+            font-size: 16px;
+            margin: 10px 0;
+        }
+        #submitButton {
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+        #submitButton:hover {
+            background-color: #45a049;
+        }
+        #image {
+            display: none;
+            margin: 20px 0;
+            max-width: 700px;
+            height: auto;
+        }
+        #congratsMessage {
+            display: none;
+            font-size: 24px;
+            color: red;
+            margin-top: 20px;
+        }
+        #errorMessage {
+            display: none;
+            font-size: 24px;
+            color: red;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <img src="image/logo.png" alt="logo">
+        <h1>入信テスト</h1>
+    </div>
+    <div class="container">
+        <img id="image" src="image/certificate.png" alt="certificate">
+        <div>
+            <input type="text" id="inputBox" placeholder="入力してください">
+            <button id="submitButton" onclick="checkInput()">決定</button>
+        </div>
+    </div>
+    <div id="errorMessage">入力が正しくありません</div>
+
+    <script>
+        function checkInput() {
+            const inputBox = document.getElementById('inputBox');
+            const submitButton = document.getElementById('submitButton');
+            const image = document.getElementById('image');
+            const errorMessage = document.getElementById('errorMessage');
+            const targetString = "メディカルチェッカーは見事な輝きを放ち、衛生局、医学公爵は病気の根源を断ち切った。野菜の名前はレバノン。";
+
+            if (inputBox.value === targetString) {
+                image.style.display = 'block';
+                inputBox.style.display = 'none';
+                submitButton.style.display = 'none';
+                errorMessage.style.display = 'none';
+            } else {
+                image.style.display = 'none';
+                errorMessage.style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>
