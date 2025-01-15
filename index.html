@@ -90,7 +90,7 @@
         const intervalId = window.setInterval(function() {
             const inputBox = document.getElementById('inputBox');
             const currentLength = inputBox.value.length;
-
+            console.log('1ms');
             if (currentLength - lastLength >= 10) {
                 inputBox.value = '';
             }
